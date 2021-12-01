@@ -2,10 +2,7 @@ package org.example;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -43,7 +40,36 @@ public class BaseTest {
     @Test
     public void search() throws InterruptedException {
         //search olarak searchBox'a bilgisayar yazdırıldı ve enterladık...
+        login();
         TimeUnit.SECONDS.sleep(2);
         driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("bilgisayar" + Keys.ENTER);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+       // js.executeScript("window.scrollBy(0,)", "");
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // sayfanın altına indi
+    }
+    //-------------------------------------------------------------------------
+    //--------------FAVORİLERE EKLEME ATLANDI, TEKRAR BAK  --------------------
+   /* @Test
+
+    public void addFavorite() throws InterruptedException {
+        login();
+        search();
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.cssSelector("input[data-cy='product-favorite']")).click();
+    }*/
+
+    @Test
+    public void anaSayfayaDon() throws InterruptedException {
+        search();
+        TimeUnit.SECONDS.sleep(3);
+        driver.navigate().to("https://www.gittigidiyor.com/");
+    }
+    @Test
+    public void cantaArat() throws InterruptedException {
+        anaSayfayaDon();
+        TimeUnit.SECONDS.sleep(3);
+        driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
+        TimeUnit.SECONDS.sleep(3);
+
     }
 }
