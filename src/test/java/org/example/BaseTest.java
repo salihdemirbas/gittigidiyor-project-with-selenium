@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
+import java.security.Key;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -24,6 +25,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.get("https://www.gittigidiyor.com/"); //gideceğimiz adresi verdik..
     }
+
     @Test
     public void login() throws InterruptedException {
 
@@ -37,5 +39,11 @@ public class BaseTest {
         //sifre girisi yaptık ve enterladık
         driver.findElement(By.id("L-PasswordField")).sendKeys("seleniumDeneme1"+ Keys.ENTER);
 
+    }
+    @Test
+    public void search() throws InterruptedException {
+        //search olarak searchBox'a bilgisayar yazdırıldı ve enterladık...
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("bilgisayar" + Keys.ENTER);
     }
 }
