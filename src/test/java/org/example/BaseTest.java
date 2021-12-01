@@ -116,6 +116,6 @@ public class BaseTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // sayfanın altına indi
         TimeUnit.SECONDS.sleep(2);
-        driver.findElement(By.className("header-link pl10")).click();
+        driver.findElement(By.cssSelector("a[title='Sepeti Düzenle']")).click();
     }
 }
