@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.security.Key;
 import java.util.concurrent.TimeUnit;
@@ -77,8 +78,44 @@ public class BaseTest {
         cantaArat();
         /*JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-(document.body.scrollHeight)"); // sayfanın altına indi
-       */ driver.findElement(By.className("gekhq4-4 fWiwPC")).click();
+       */// driver.findElement(By.className("sc-84am1q-0 sc-1r48nyr-0 WZTpV kEgEYI")).click();
+       //driver.findElement(By.className("gekhq4-6 ojrwK")).click();
+       // title=Sepetim
+        driver.navigate().to("https://www.gittigidiyor.com/sepetim");
+              //  driver.findElement(By.cssSelector("input[title='Sepetim']")).click();
 
 
+    }
+    @Test
+    public void adetArttir() throws InterruptedException {
+        goToCart();
+   driver.findElement(By.cssSelector("select[class='amount']")).click();
+
+        TimeUnit.SECONDS.sleep(2);
+
+        driver.findElement(By.cssSelector("option[value='2']")).click();
+        TimeUnit.SECONDS.sleep(2);
+       // select.selectByVisibleText("2");
+        TimeUnit.SECONDS.sleep(2); //5 sn bekleme süresi ayarladık.*/
+    }
+    @Test
+    public void odemeyeGit() throws InterruptedException {
+        adetArttir();
+        //driver.findElement(By.className("gg-d-24 gg-ui-btn-primary gg-ui-btn-lg btn-pay")).click();
+        driver.findElement(By.cssSelector("input[value='Alışverişi Tamamla']")).click();
+    }
+    @Test
+    public void adresKaydet() throws InterruptedException {
+        odemeyeGit();
+        driver.findElement(By.cssSelector("button[value='Kaydet']")).click();
+        TimeUnit.SECONDS.sleep(5);
+    }
+    @Test
+    public void sepetiDuzenle() throws InterruptedException {
+        adresKaydet();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // sayfanın altına indi
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.className("header-link pl10")).click();
     }
 }
