@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.security.Key;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -48,6 +49,29 @@ public class BaseTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
        // js.executeScript("window.scrollBy(0,)", "");
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // sayfanın altına indi
+        Random rnd = new Random();
+        int fav1= 1+ rnd.nextInt(5);
+        int fav2= 6+ rnd.nextInt(5);
+        int fav3= 11+ rnd.nextInt(5);
+        int fav4= 16+ rnd.nextInt(5);
+       TimeUnit.SECONDS.sleep(1);
+       // js.executeScript("window.scrollTo(0,-2000)");
+       // js.executeScript("window.scrollTo(0,350)");
+        driver.findElements(By.cssSelector("div[class='sc-1n49x8z-14 fIkZfb']")).get(0).click();
+        TimeUnit.SECONDS.sleep(1);
+        js.executeScript("window.scrollTo(0,350)");
+        driver.findElements(By.cssSelector("div[class='sc-1n49x8z-14 fIkZfb']")).get(1).click();
+        TimeUnit.SECONDS.sleep(1);
+        js.executeScript("window.scrollTo(0,350)");
+        driver.findElements(By.cssSelector("div[class='sc-1n49x8z-14 fIkZfb']")).get(2).click();
+        TimeUnit.SECONDS.sleep(1);
+        js.executeScript("window.scrollTo(0,350)");
+        driver.findElements(By.cssSelector("div[class='sc-1n49x8z-14 fIkZfb']")).get(3).click();
+        TimeUnit.SECONDS.sleep(1);
+
+
+
+        // fav className:  sc-1n49x8z-14 fIkZfb
     }
     //-------------------------------------------------------------------------
     //--------------FAVORİLERE EKLEME ATLANDI, TEKRAR BAK  --------------------
@@ -70,9 +94,15 @@ public class BaseTest {
     public void cantaArat() throws InterruptedException {
         anaSayfayaDon();
         TimeUnit.SECONDS.sleep(3);
-        //driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
+        driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
         //7.ürün ekletildi...
-        driver.findElement(By.xpath("//ul[@class='catalog-view clearfix products-container']//li[7]//a")).click();
+        driver.findElements(By.cssSelector("div[class='sc-533kbx-0 sc-1v2q8t1-0 iCRwxx ixSZpI sc-1n49x8z-12 bhlHZl']")).get(6).click();
+        //buraya scrol gerekiyor
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,400)");
+        TimeUnit.SECONDS.sleep(1);
+        driver.findElement(By.id("add-to-basket")).click();
+        //
 
         TimeUnit.SECONDS.sleep(3);
 
