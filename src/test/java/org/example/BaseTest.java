@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -69,7 +70,10 @@ public class BaseTest {
     public void cantaArat() throws InterruptedException {
         anaSayfayaDon();
         TimeUnit.SECONDS.sleep(3);
-        driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
+        //driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
+        //7.ürün ekletildi...
+        driver.findElement(By.xpath("//ul[@class='catalog-view clearfix products-container']//li[7]//a")).click();
+
         TimeUnit.SECONDS.sleep(3);
 
     }
@@ -118,4 +122,36 @@ public class BaseTest {
         TimeUnit.SECONDS.sleep(2);
         driver.findElement(By.cssSelector("a[title='Sepeti Düzenle']")).click();
     }
+    @Test
+    public void yeniSekme() throws InterruptedException {
+        sepetiDuzenle();
+        TimeUnit.SECONDS.sleep(2);
+        ((JavascriptExecutor)driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://www.gittigidiyor.com/");
+        TimeUnit.SECONDS.sleep(2);
+        driver.get("https://www.gittigidiyor.com/cikis-yap");
+        driver.switchTo().window(tabs.get(0));
+       // TimeUnit.SECONDS.sleep(2);
+
+    }
+    @Test
+    public void cikisYap() throws InterruptedException {
+        //burada cikis yap için locator bulamadım :( o sebeple link yonlendirme verdim.
+        yeniSekme();
+
+        //yeni sekme kapat
+        /*ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(0));
+        ((JavascriptExecutor)driver).executeScript("window.close()");*/
+        TimeUnit.SECONDS.sleep(3);
+        //driver.close();
+        driver.quit();
+
+
+
+    }
+
+
 }
