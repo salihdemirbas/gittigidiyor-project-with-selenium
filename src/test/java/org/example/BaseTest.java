@@ -72,4 +72,13 @@ public class BaseTest {
         TimeUnit.SECONDS.sleep(3);
 
     }
+    @Test
+    public void goToCart() throws InterruptedException {
+        cantaArat();
+        /*JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-(document.body.scrollHeight)"); // sayfanın altına indi
+       */ driver.findElement(By.className("gekhq4-4 fWiwPC")).click();
+
+
+    }
 }
