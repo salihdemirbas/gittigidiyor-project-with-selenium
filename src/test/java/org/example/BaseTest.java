@@ -96,11 +96,11 @@ public class BaseTest {
         TimeUnit.SECONDS.sleep(3);
         driver.findElement(By.cssSelector("input[data-cy='header-search-input']")).sendKeys("çanta" + Keys.ENTER);
         //7.ürün ekletildi...
-        driver.findElements(By.cssSelector("div[class='sc-533kbx-0 sc-1v2q8t1-0 iCRwxx ixSZpI sc-1n49x8z-12 bhlHZl']")).get(6).click();
+        driver.findElements(By.cssSelector("div[class='sc-533kbx-0 sc-1v2q8t1-0 iCRwxx ixSZpI sc-1n49x8z-12 bhlHZl']")).get(4).click();
         //buraya scrol gerekiyor
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,400)");
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(2);
         driver.findElement(By.id("add-to-basket")).click();
         //
 
@@ -151,6 +151,16 @@ public class BaseTest {
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // sayfanın altına indi
         TimeUnit.SECONDS.sleep(2);
         driver.findElement(By.cssSelector("a[title='Sepeti Düzenle']")).click();
+        js.executeScript("window.scrollTo(0,400)");
+        //classname ="gg-ui-btn-default btn-add-to-basket"
+        driver.findElements(By.cssSelector("a[class='gg-ui-btn-default btn-add-to-basket']")).get(4).click();
+        TimeUnit.SECONDS.sleep(2);
+        js.executeScript("window.scrollTo(0,400)");
+        driver.findElements(By.cssSelector("i[class='gg-icon gg-icon-close']")).get(2).click();
+       // driver.findElements(By.cssSelector("a[class='gg-ui-btn-default btn-add-to-basket']")).get(1).click();
+      //  driver.findElements(By.className("gg-ui-btn-default btn-add-to-basket")).get(1).click();
+
+
     }
     @Test
     public void yeniSekme() throws InterruptedException {
