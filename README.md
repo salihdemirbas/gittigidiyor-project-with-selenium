@@ -10,20 +10,20 @@ Proje;
  - Maven
  - Junit 4
  - Selenium
- - Log4j 
+ - Log4j (***Loglama başarıyla yapılıyor, ancak logfile.log dosyasına kaydedil(e)medi. Yalnızca console kısmında log mesajları görünüyor****)
 
 kullanıldı.
 
 # Senaryo Adımları
 
  - Gittigidiyor Anasayfa aç
- - Login ol
+ - Login ol (***Login sayfasına link yönlendirme ile gidildi. Maalesef "hover and click" kullanılamadı***)
  - Dilediğin Ürünü Arat ( Bilgisayar aratıldı)
  - Sayfa sonuna scroll yap.
- - Random 4 ürünü sepete ekle ( Random şekilde gerçekleştiremedim, bu sebeple ilk 4 ürünü sepete ekledim.)
+ - Random 4 ürünü sepete ekle (***Random şekilde gerçekleştiremedim, bu sebeple ilk 4 ürünü sepete ekledim.***)
  - Anasayfaya geri dön.
  - "Çanta" ürününü arat.
- -  Listelenen ürünlerden 7. ürünü sepete ekle.
+ -  Listelenen ürünlerden 7. ürünü sepete ekle. (***6.ürünü ekledim. Sebebide şu, test koşumu esnasında herkes aynı ürünü ekleği için üründe stok yok gözüküp, testler patlıyordu. Bu sebeple 6. ürün eklendi. Ancak sadece get(x) metodu içindeki x değeri 7 olarak değiştirilse, 7. ürüne erişim sağlanabilir.***)
  - Sepetime git.
  - Ürün adetini arttır.
  - Ödeme sayfasına geç.
@@ -32,7 +32,7 @@ kullanıldı.
  - Favorilerden (sonra alacaklarım) 2. ürünü sepete ekle.
  - Favori ürünlerinden 3. ürünü listeden çıkar.
  - Yeni sekmede anasayfayı(gittigidiyor.com) aç.
- - Çıkış yap.
+ - Çıkış yap. (***Çıkış yapma işlemi link yönlendirme ile yapıldı. Yine "hover and click" kullanılamadı***)
  - Yeni sekmeyi kapat.
  - Tüm penceleri kapat.
  
