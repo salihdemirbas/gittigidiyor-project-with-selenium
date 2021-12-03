@@ -1,6 +1,6 @@
 # Gittigidiyor.com Test Projesi
 
-Merhaba, test koşumuna ait videoyu izlemek için lütfen [tıklayınız.](https://youtu.be/cJXUGCTivQE)
+## Merhaba, test koşumuna ait videoyu izlemek için lütfen [tıklayınız.](https://youtu.be/cJXUGCTivQE)
 
 
 <img width="960" alt="gittigidiyor" src="https://user-images.githubusercontent.com/26657802/144559367-6d41ef2e-c692-4b57-b5c0-6c19224c7bfc.png">
