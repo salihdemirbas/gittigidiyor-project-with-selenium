@@ -19,6 +19,8 @@ kullanıldı.
  - Gittigidiyor Anasayfa aç
  - Login ol
  - Dilediğin Ürünü Arat ( Bilgisayar aratıldı)
+ - Sayfa sonuna scroll yap.
+ - Random 4 ürünü sepete ekle ( Random şekilde gerçekleştiremedim, bu sebeple ilk 4 ürünü sepete ekledim.)
  - Anasayfaya geri dön.
  - "Çanta" ürününü arat.
  -  Listelenen ürünlerden 7. ürünü sepete ekle.
